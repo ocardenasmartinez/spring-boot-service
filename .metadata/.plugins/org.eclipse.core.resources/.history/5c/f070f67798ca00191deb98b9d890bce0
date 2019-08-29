@@ -1,6 +1,0 @@
-package cl.subtel.service;
-
-@SpringBootApplication (exclude = SecurityAutoConfiguration.class)
-public class SpringBootDemoApplication {
-
-}
