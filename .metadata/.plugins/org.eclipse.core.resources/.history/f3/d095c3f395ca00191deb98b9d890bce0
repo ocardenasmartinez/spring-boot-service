@@ -1,0 +1,5 @@
+package cl.subtel.service;
+
+public class SpringBootDemoApplication {
+
+}
