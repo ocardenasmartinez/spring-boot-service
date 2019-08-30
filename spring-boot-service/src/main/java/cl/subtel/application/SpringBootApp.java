@@ -11,6 +11,8 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
+import cl.subtel.dao.DAO;
+import cl.subtel.dao.DAOImpl;
 import cl.subtel.services.Service;
 import cl.subtel.services.ServiceImpl;
 
@@ -26,14 +28,23 @@ public class SpringBootApp {
 
 	@Bean
 	public Service getService() {
-		return new ServiceImpl();
+		Service service = new ServiceImpl();
+		service.setDao(this.getDAO());
+		return service;
+	}
+	
+	@Bean
+	public DAO getDAO() {
+		DAO dao = new DAOImpl();
+		dao.setDataSource(this.getDataSource());
+		return dao;
 	}
 
 	@Bean
 	public DataSource getDataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName("");
-		dataSource.setUrl("");
+		dataSource.setDriverClassName("org.postgresql.Driver");
+		dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
 		dataSource.setUsername("postgres");
 		dataSource.setPassword("123456");
 		return dataSource;

@@ -1,19 +1,21 @@
 package cl.subtel.services;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import cl.subtel.dao.DAO;
+
 public class ServiceImpl implements Service {
+
+	private DAO dao;
+
+	public void setDao(DAO dao) {
+		this.dao = dao;
+	}
 
 	@Override
 	public List<Map<String, Object>> getList(String request) {
-		List<Map<String, Object>> out = new ArrayList<>();
-		Map<String, Object> map1 = new HashMap<>();
-		map1.put("numero", 3);
-		out.add(map1);
-		return out;
+		return dao.getList(request);
 	}
 
 }
