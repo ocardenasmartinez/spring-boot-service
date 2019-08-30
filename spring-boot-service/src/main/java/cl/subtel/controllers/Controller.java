@@ -17,7 +17,7 @@ public class Controller {
 
 	@RequestMapping("/")
 	public List<Map<String, Object>> getList() {		
-		return service.getList("sl");
+		return service.getList("1");
 	}
 
 }

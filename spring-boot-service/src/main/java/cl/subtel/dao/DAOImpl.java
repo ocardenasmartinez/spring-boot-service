@@ -24,7 +24,8 @@ public class DAOImpl implements DAO {
 	public List<Map<String, Object>> getList(String request) {
 		SimpleJdbcCall jdbcCall = new SimpleJdbcCall(this.bdcDataSource)
 				.withSchemaName("postgres")
-				.withProcedureName("public.hello_world");
+				.withCatalogName("public")
+				.withProcedureName("hello_world");
 		String response = "";
 		SqlParameterSource in = new MapSqlParameterSource().addValue("i", Integer.parseInt(request));
 		try {
