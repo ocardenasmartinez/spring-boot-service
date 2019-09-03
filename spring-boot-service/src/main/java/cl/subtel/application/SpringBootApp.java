@@ -25,7 +25,7 @@ public class SpringBootApp {
 		Arrays.sort(beanNames);
 		Arrays.asList(beanNames).forEach(System.out::println);
 	}
-
+	
 	@Bean
 	public Service getService() {
 		Service service = new ServiceImpl();

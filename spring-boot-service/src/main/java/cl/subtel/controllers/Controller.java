@@ -26,7 +26,7 @@ public class Controller {
 		Map<String, Object> request = new HashMap<>();
 		request.put("name", saveUser.getName());
 		request.put("lastname", saveUser.getLastname());
-		request.put("brirthname", saveUser.getBrirthname());
+		request.put("birthdate", saveUser.getBirthdate());
 		request.put("contactNumber", saveUser.getContactNumber());
 		request.put("address", saveUser.getAddress());
 		request.put("email", saveUser.getEmail());

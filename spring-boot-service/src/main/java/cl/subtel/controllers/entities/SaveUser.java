@@ -4,7 +4,7 @@ public class SaveUser {
 
 	private String name;
 	private String lastname;
-	private String brirthname;
+	private String birthdate;
 	private Integer contactNumber;
 	private String address;
 	private String email;
@@ -26,12 +26,12 @@ public class SaveUser {
 		this.lastname = lastname;
 	}
 
-	public String getBrirthname() {
-		return brirthname;
+	public String getBirthdate() {
+		return birthdate;
 	}
 
-	public void setBrirthname(String brirthname) {
-		this.brirthname = brirthname;
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
 	}
 
 	public Integer getContactNumber() {
