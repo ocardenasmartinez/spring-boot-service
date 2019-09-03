@@ -1,6 +1,5 @@
 package cl.subtel.services;
 
-import java.util.List;
 import java.util.Map;
 
 import cl.subtel.dao.DAO;
@@ -14,8 +13,8 @@ public class ServiceImpl implements Service {
 	}
 
 	@Override
-	public List<Map<String, Object>> getList(String request) {
-		return dao.getList(request);
+	public String saveUser(Map<String, Object> request) {
+		return dao.saveUser(request);
 	}
 
 }

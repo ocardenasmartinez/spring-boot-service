@@ -1,6 +1,5 @@
 package cl.subtel.dao;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.sql.DataSource;
@@ -21,16 +20,21 @@ public class DAOImpl implements DAO {
 	}
 
 	@Override
-	public List<Map<String, Object>> getList(String request) {
+	public String saveUser(Map<String, Object> request) {
 		SimpleJdbcCall jdbcCall = new SimpleJdbcCall(this.bdcDataSource)
-				.withSchemaName("postgres")
-				.withCatalogName("public")
-				.withProcedureName("hello_world");
-		String response = "";
-		SqlParameterSource in = new MapSqlParameterSource().addValue("i", Integer.parseInt(request));
+				.withSchemaName("challenge")
+				.withProcedureName("add_user");
+		SqlParameterSource in = new MapSqlParameterSource()
+				.addValue("name", request.get("name"))
+				.addValue("lastname", request.get("lastname"))
+				.addValue("brirthname", request.get("brirthname"))
+				.addValue("contact_number", request.get("contactNumber"))
+				.addValue("address", request.get("address"))
+				.addValue("email", request.get("email"))
+				.addValue("country", request.get("country"));
 		try {
 			Map<String, Object> out = jdbcCall.execute(in);
-			response = (String) out.get("PARAMETER_OUT");
+			System.out.println((String) out.get("message"));
 		} catch (Exception e) {
 			throw e;
 		}
