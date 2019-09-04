@@ -25,18 +25,33 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = { "createdAt", "updatedAt" }, allowGetters = true)
 public class User implements Serializable {
-	
+
 	private static final long serialVersionUID = -8813416577817673508L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotBlank
-	private String title;
+	@Column(nullable = false)
+	private String name;
 
-	@NotBlank
-	private String content;
+	@Column(nullable = false)
+	private String lastname;
+
+	@Column(nullable = false)
+	private Date birthdate;
+
+	@Column(nullable = false)
+	private Long contactNumber;
+
+	@Column(nullable = false)
+	private String address;
+
+	@Column(nullable = false)
+	private String email;
+
+	@Column(nullable = false)
+	private String country;
 
 	@Column(nullable = false, updatable = false)
 	@Temporal(TemporalType.TIMESTAMP)
@@ -56,20 +71,60 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getName() {
+		return name;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getContent() {
-		return content;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public Date getBirthdate() {
+		return birthdate;
+	}
+
+	public void setBirthdate(Date birthdate) {
+		this.birthdate = birthdate;
+	}
+
+	public Long getContactNumber() {
+		return contactNumber;
+	}
+
+	public void setContactNumber(Long contactNumber) {
+		this.contactNumber = contactNumber;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 	public Date getCreatedAt() {
@@ -86,6 +141,10 @@ public class User implements Serializable {
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }
