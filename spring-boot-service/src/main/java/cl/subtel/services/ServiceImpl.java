@@ -2,19 +2,21 @@ package cl.subtel.services;
 
 import java.util.Map;
 
-import cl.subtel.dao.DAO;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import cl.subtel.dao.entities.User;
+import cl.subtel.dao.repositories.UserRepository;
 
 public class ServiceImpl implements Service {
 
-	private DAO dao;
-
-	public void setDao(DAO dao) {
-		this.dao = dao;
-	}
+	@Autowired
+	UserRepository noteRepository;
 
 	@Override
 	public String saveUser(Map<String, Object> request) {
-		return dao.saveUser(request);
+		User user = new User();
+		noteRepository.save(user);
+		return "ok";
 	}
 
 }
