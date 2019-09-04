@@ -11,8 +11,7 @@ public class ApplicationConfiguration {
 	
 	@Bean
 	public Service getService() {
-		Service service = new ServiceImpl();
-		return service;
+		return new ServiceImpl();
 	}
 
 }
