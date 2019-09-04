@@ -6,15 +6,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import cl.subtel.services.Service;
-import cl.subtel.services.ServiceImpl;
-
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
-@ComponentScan(basePackages = { "cl.subtel.controllers" })
+@ComponentScan(basePackages = { "cl.subtel.controllers", "cl.subtel.application" })
 @EntityScan("cl.subtel.dao.entities")
 @EnableJpaRepositories("cl.subtel.dao.repositories")
 public class SpringBootApp {
@@ -24,11 +20,5 @@ public class SpringBootApp {
 		Arrays.sort(beanNames);
 		Arrays.asList(beanNames).forEach(System.out::println);
 	}
-	
-	@Bean
-	public Service getService() {
-		Service service = new ServiceImpl();
-		return service;
-	}
-	
+
 }
