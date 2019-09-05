@@ -39,6 +39,7 @@ public class User implements Serializable {
 	private String lastname;
 
 	@Column(nullable = false)
+	@Temporal(TemporalType.DATE)
 	private Date birthdate;
 
 	@Column(nullable = false)
