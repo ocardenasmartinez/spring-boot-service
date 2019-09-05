@@ -55,4 +55,4 @@ local.properties
 .scala_dependencies
 .worksheet
 Servers
-target
+spring-boot-service/target
