@@ -40,7 +40,7 @@ public class ControllerTest {
 					.andExpect(status().isOk())
 					.andExpect(jsonPath("$.status").value("ok"))
 	        		.andExpect(jsonPath("$.error").isEmpty())
-	        		.andExpect(jsonPath("$.data").value("ok"));;
+	        		.andExpect(jsonPath("$.data").value("ok"));
 	}
 
 }
