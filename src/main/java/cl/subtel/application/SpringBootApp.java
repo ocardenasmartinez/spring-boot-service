@@ -5,11 +5,10 @@ import java.util.Arrays;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication(exclude = SecurityAutoConfiguration.class)
+@SpringBootApplication
 @ComponentScan(basePackages = { "cl.subtel.controllers", "cl.subtel.application" })
 @EntityScan("cl.subtel.dao.entities")
 @EnableJpaRepositories("cl.subtel.dao.repositories")

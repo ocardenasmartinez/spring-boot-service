@@ -26,10 +26,7 @@ public class ServiceImpl implements Service {
 		User user = new User();
 		user.setName((String) request.get("name"));
 		user.setLastname((String) request.get("lastname"));
-		user.setBirthdate(
-			convertToDateViaInstant(
-				LocalDate.parse(
-					(String) request.get("birthdate"), DateTimeFormatter.ofPattern(DD_MM_YYYY))));
+		user.setBirthdate(convertStringDate((String) request.get("birthdate")));
 		user.setContactNumber(((Number) request.get("contactNumber")).longValue());
 		user.setCountry((String) request.get("country"));
 		user.setAddress((String) request.get("address"));
@@ -44,10 +41,11 @@ public class ServiceImpl implements Service {
 		}
 	}
 	
-	private Date convertToDateViaInstant(LocalDate dateToConvert) {
-	    return java.util.Date.from(dateToConvert.atStartOfDay()
-	      .atZone(ZoneId.systemDefault())
-	      .toInstant());
+	private static Date convertStringDate(String date) {
+		return Date.from(
+			LocalDate.parse(
+				date, DateTimeFormatter.ofPattern(DD_MM_YYYY)).atStartOfDay().atZone(ZoneId.systemDefault())
+					.toInstant());
 	}
 
 }
