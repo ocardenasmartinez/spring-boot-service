@@ -8,7 +8,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<springboot.version>2.1.7.RELEASE</springboot.version>
+		<springboot.version>2.5.12</springboot.version>
 	</properties>
 	<dependencies>
 		<dependency>
